@@ -454,15 +454,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.286063
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.286063
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.286063
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1000010010492814, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Layer
@@ -683,9 +683,9 @@ GameObject:
   - component: {fileID: 1041171817}
   - component: {fileID: 1041171816}
   - component: {fileID: 1041171815}
-  - component: {fileID: 1041171814}
   - component: {fileID: 1041171818}
   - component: {fileID: 1041171813}
+  - component: {fileID: 1041171814}
   m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
@@ -722,11 +722,11 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041171812}
-  m_Material: {fileID: 13400000, guid: 31755cb71adfb6d47bb6b1936c5d5eaa, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.74744
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1041171815
 MeshRenderer:
@@ -774,7 +774,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041171812}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5495902117074765545, guid: bb27e97f16646cc42882d8db132fec19, type: 3}
 --- !u!4 &1041171817
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +784,7 @@ Transform:
   m_GameObject: {fileID: 1041171812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.65, z: 0}
-  m_LocalScale: {x: 3.495734, y: 3.495734, z: 3.495734}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 570429676}
   m_Father: {fileID: 0}

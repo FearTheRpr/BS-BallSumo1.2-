@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class conter_rotate : MonoBehaviour
 {
+    //this just make sure that the player stays up right.
 
     void FixedUpdate()
     {
