@@ -22,11 +22,11 @@ public class Ball_movement : MonoBehaviour
             if (Pulltoggle.GetState(SteamVR_Input_Sources.LeftHand))
             {
                 leftOn = true;
-                leftStart =  leftHand.transform.position;
+                leftStart =  leftHand.transform.localPosition;
             }
             else
             {
-                addT = leftStart - leftHand.transform.position;
+                addT = leftStart - leftHand.transform.localPosition;
                 ball.AddTorque(addT);
                 addT = addT * 1000;
                 leftOn = false;
@@ -36,10 +36,10 @@ public class Ball_movement : MonoBehaviour
         {
             if (leftOn)
             {
-                addT = leftStart - leftHand.transform.position;
+                addT = leftStart - leftHand.transform.localPosition;
                 addT = addT * 1000;
                 ball.AddTorque(addT);
-                leftStart = leftHand.transform.position;
+                leftStart = leftHand.transform.localPosition;
             }
         }
         if (Pulltoggle.GetChanged(SteamVR_Input_Sources.RightHand))
@@ -47,11 +47,11 @@ public class Ball_movement : MonoBehaviour
             if (Pulltoggle.GetState(SteamVR_Input_Sources.RightHand))
             {
                 rightOn = true;
-                rightStart = rightHand.transform.position;
+                rightStart = rightHand.transform.localPosition;
             }
             else
             {
-                addT = rightStart - rightHand.transform.position;
+                addT = rightStart - rightHand.transform.localPosition;
                 addT = addT * 1000;
                 ball.AddTorque(addT);
                 rightOn = false;
@@ -61,7 +61,7 @@ public class Ball_movement : MonoBehaviour
         {
             if (rightOn)
             {
-                addT = rightStart - rightHand.transform.position;
+                addT = rightStart - rightHand.transform.localPosition;
                 addT = addT * 1000;
                 ball.AddTorque(addT);
                 rightStart = rightHand.transform.position;
