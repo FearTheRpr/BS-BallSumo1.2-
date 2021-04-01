@@ -27,6 +27,13 @@ public class Ball_movement : MonoBehaviour
     public bool leftOn = false;
     public bool rightOn = false;
     public Rigidbody ball;
+    public GameObject play;
+  /*  private void Start()
+    {
+        ball = this.GetComponent<Rigidbody>();
+        leftHand = GameObject.FindGameObjectWithTag("LeHand");
+        rightHand = GameObject.FindGameObjectWithTag("RiHand");
+    }*/
     //fixed update because there is physic involved
     private void FixedUpdate()
     {
