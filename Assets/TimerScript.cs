@@ -18,12 +18,12 @@ public class TimerScript : RealtimeComponent<TimerModel>
     }
     public void tenMinuteTimer()
     {
-        countDown = true;
+       countDown = true;
     }
 
     private void Update()
     {
-        //detects game start
+        //detects timer start
         if (countDown == true)
         {
             //if the timer isnt at 0 then it continues timing down
@@ -32,6 +32,20 @@ public class TimerScript : RealtimeComponent<TimerModel>
                 timeRemainingten -= Time.deltaTime;
                 DisplayTime(timeRemainingten);
             }
+
+            /*/
+            //starts first ring sinking
+             if (timeRemainingten = 300)
+             {
+
+             }
+            
+            //starts second ring sinking
+             if (timeRemainingten = 150)
+            {
+
+            }
+           */
 
             //ends count down and game
             if (timeRemainingten < 0)
