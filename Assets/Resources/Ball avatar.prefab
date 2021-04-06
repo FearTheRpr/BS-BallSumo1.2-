@@ -275,6 +275,8 @@ GameObject:
   - component: {fileID: 114879240156072798}
   - component: {fileID: 114800176784454794}
   - component: {fileID: 114272718057082298}
+  - component: {fileID: 7264303398523731847}
+  - component: {fileID: 5221367084547809087}
   m_Layer: 9
   m_Name: Ball avatar
   m_TagString: Untagged
@@ -363,6 +365,33 @@ MonoBehaviour:
   _syncScale: 1
   _syncVelocity: 1
   _maintainOwnershipWhileSleeping: 0
+--- !u!135 &7264303398523731847
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.74744
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5221367084547809087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435502846325602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c10574ed1089a4abe09d61df0ffa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RTrans: {fileID: 114272718057082298}
+  selfie: {fileID: 1435502846325602}
 --- !u!1 &1573471737031190
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,8 +829,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8472255929427289020, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
-    - {fileID: 8472255929427289023, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
     - {fileID: 8472255929427289011, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
+    - {fileID: 8472255929427289023, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
 --- !u!4 &3694926039803905655 stripped
 Transform:
