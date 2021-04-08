@@ -17,23 +17,25 @@ public class Ball_movement : MonoBehaviour
     /// to keep track if the left hand grab is held
     /// to keep track if the right hand grab is held
     /// the riged body for the ball
+    /// the multiplication factor
     /// </summary>
     public SteamVR_Action_Boolean Pulltoggle = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("default", "ball_pull");
     public GameObject leftHand;
     public GameObject rightHand;
+    public VelocityEstimator vLeft;
+    public VelocityEstimator vRight;
+    public VelocityEstimator vHead;
     public Vector3 leftStart;
     public Vector3 rightStart;
     private Vector3 addT;
+    private Vector3 headCurrentVolicity;
     public bool leftOn = false;
     public bool rightOn = false;
     public Rigidbody ball;
     public GameObject play;
-  /*  private void Start()
-    {
-        ball = this.GetComponent<Rigidbody>();
-        leftHand = GameObject.FindGameObjectWithTag("LeHand");
-        rightHand = GameObject.FindGameObjectWithTag("RiHand");
-    }*/
+    public int multi_fact;
+    public int multi_fact_Head;
+
     //fixed update because there is physic involved
     private void FixedUpdate()
     {
@@ -52,9 +54,10 @@ public class Ball_movement : MonoBehaviour
             else
             {
                 //subtrackt the left hand start in relation to where it is now
-                addT = leftStart - leftHand.transform.localPosition;
+                //addT = leftStart - leftHand.transform.localPosition;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = addT * 1000;
+                addT = vLeft.GetVelocityEstimate();
+                addT = addT * multi_fact;
                 // add the torque to the ball
                 ball.AddTorque(addT);
                 //turn the grab state off
@@ -68,9 +71,10 @@ public class Ball_movement : MonoBehaviour
             if (leftOn)
             {
                 //subtrackt the left hand start in relation to where it is now
-                addT = leftStart - leftHand.transform.localPosition;
+               //addT = leftStart - leftHand.transform.localPosition;
+                addT = vLeft.GetVelocityEstimate();
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = addT * 1000;
+                addT = addT * multi_fact;
                 // add the torque to the ball
                 ball.AddTorque(addT);
                 //keep track of the starting local position
@@ -92,9 +96,10 @@ public class Ball_movement : MonoBehaviour
             else
             {
                 //subtrackt the right hand start in relation to where it is now
-                addT = rightStart - rightHand.transform.localPosition;
+                //addT = rightStart - rightHand.transform.localPosition;
+                addT = vRight.GetVelocityEstimate();
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = addT * 1000;
+                addT = addT * multi_fact;
                 // add the torque to the ball
                 ball.AddTorque(addT);
                 //turn the grab state off
@@ -108,14 +113,23 @@ public class Ball_movement : MonoBehaviour
             if (rightOn)
             {
                 //subtrackt the right hand start in relation to where it is now
-                addT = rightStart - rightHand.transform.localPosition;
+                //addT = rightStart - rightHand.transform.localPosition;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = addT * 1000;
+                addT = vRight.GetVelocityEstimate();
+                addT = addT * multi_fact;
                 // add the torque to the ball
                 ball.AddTorque(addT);
                 //keep track of the starting local position
                 rightStart = rightHand.transform.position;
             }
         }
+        headCurrentVolicity = vHead.GetVelocityEstimate();
+        if (headCurrentVolicity.y > 0)
+        {
+            ball.velocity.Set(ball.velocity.x, multi_fact_Head, ball.velocity.x);
+            //ball.velocity.y = headCurrentVolicity.y * multi_fact_Head;
+        }
+       // ball.velocity;
     }
+    
 }
