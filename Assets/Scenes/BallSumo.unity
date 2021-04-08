@@ -325,7 +325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &570722347
 RectTransform:
   m_ObjectHideFlags: 0
@@ -466,11 +466,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 570722346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db997578dfcdc94d903e716c77ee745, type: 3}
+  m_Script: {fileID: 11500000, guid: 6acc1125764af904fbcf1bcf0efaeb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 1816958900}
-  countDown: 0
 --- !u!114 &570722351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,8 +987,6 @@ MonoBehaviour:
   _sceneViewDestroyWhenOwnerOrLastClientLeaves: 0
   _isRootPrefabView: 0
   _components:
-  - componentID: 1
-    component: {fileID: 1419787572}
   - componentID: 2
     component: {fileID: 1419787579}
   _childViews: []
