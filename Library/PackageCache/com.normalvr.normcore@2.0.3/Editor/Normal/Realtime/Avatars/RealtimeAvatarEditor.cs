@@ -50,7 +50,7 @@ namespace Normal.Realtime {
 
 
             //// Head
-            Transform head = CreateGameObjectForPropertyIfNeeded(headProperty, gameObject.transform, "Head", new Type[]{ typeof(Examples.VoiceScale) });
+            Transform head = CreateGameObjectForPropertyIfNeeded(headProperty, gameObject.transform, "Head", new Type[]{ typeof(RealtimeAvatarVoiceScale) });
 
             // RealtimeView
             RealtimeView headRealtimeView = AddRealtimeViewComponentIfNeeded(head.gameObject);
