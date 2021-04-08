@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 981b6115e6abc854191506bba5df2a9f
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _TerrainColor: {fileID: 2800000, guid: c8612be64dd0fcf49b6d7ef377dc639e, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
