@@ -1,5 +1,5 @@
-﻿#if NORMCORE
-
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Normal.Realtime.Examples {
@@ -28,5 +28,3 @@ namespace Normal.Realtime.Examples {
         }
     }
 }
-
-#endif
