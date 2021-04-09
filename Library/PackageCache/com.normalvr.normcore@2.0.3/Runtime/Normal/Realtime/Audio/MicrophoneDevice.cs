@@ -66,6 +66,7 @@ namespace Normal.Realtime {
         void Dispose(bool disposing) {
             if (_microphone != null) {
                 Microphone.End(_deviceName);
+                UnityEngine.Object.Destroy(_microphone);
                 _microphone = null;
             }
         }

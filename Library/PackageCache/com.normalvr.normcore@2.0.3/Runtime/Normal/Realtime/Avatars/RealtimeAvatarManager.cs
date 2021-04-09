@@ -139,13 +139,17 @@ namespace Normal.Realtime {
             }
 
             localAvatar = avatarGameObject.GetComponent<RealtimeAvatar>();
-            if (avatarGameObject == null) {
+            if (localAvatar == null) {
                 Debug.LogError("RealtimeAvatarManager: Successfully instantiated avatar prefab, but could not find the RealtimeAvatar component.");
                 return;
             }
 
             localAvatar.localPlayer = _localPlayer;
-            localAvatar.deviceType = GetRealtimeAvatarDeviceTypeForLocalPlayer();
+            localAvatar.deviceType  = GetRealtimeAvatarDeviceTypeForLocalPlayer();
+#if !UNITY_2020_2_OR_NEWER
+            // Unity deprecated this API in 2020.2 without a clear replacement.
+            localAvatar.deviceModel = XRDevice.model;
+#endif
         }
 
         public void DestroyAvatarIfNeeded() {

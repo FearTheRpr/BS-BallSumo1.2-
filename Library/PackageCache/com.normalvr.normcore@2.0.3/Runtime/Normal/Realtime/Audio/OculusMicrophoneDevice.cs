@@ -9,7 +9,12 @@ namespace Normal.Realtime {
         private static MethodInfo __IsInitializedMethod;
 
         static OculusMicrophoneDevice() {
-            __oculusPlatformCore = Type.GetType("Oculus.Platform.Core,Assembly-CSharp");
+            __oculusPlatformCore = Type.GetType("Oculus.Platform.Core,Oculus.Platform");
+            
+            // If null, try checking for the type in the project assembly where it used to live before Oculus added the asmdef
+            if (__oculusPlatformCore == null)
+                __oculusPlatformCore = Type.GetType("Oculus.Platform.Core,Assembly-CSharp");
+            
             if (__oculusPlatformCore != null)
                 __IsInitializedMethod = __oculusPlatformCore.GetMethod("IsInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
         }
@@ -32,15 +37,17 @@ namespace Normal.Realtime {
         }
 
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-#    if UNITY_64 || UNITY_EDITOR_64
+    #if UNITY_64 || UNITY_EDITOR_64
         public const string OVR_DLL_NAME = "LibOVRPlatform64_1";
-#else
+    #else
         public const string OVR_DLL_NAME = "LibOVRPlatform32_1";
-#endif
+    #endif
 #elif UNITY_EDITOR || UNITY_EDITOR_64
-        public const string OVR_DLL_NAME = "ovrplatform";
+    public const string OVR_DLL_NAME = "ovrplatform";
+#elif UNITY_ANDROID && OVR_STANDALONE_PLATFORM
+    public const string OVR_DLL_NAME = "ovrplatform_standalone";
 #else
-        public const string OVR_DLL_NAME = "ovrplatformloader";
+    public const string OVR_DLL_NAME = "ovrplatformloader";
 #endif
 
         [DllImport(OVR_DLL_NAME, CallingConvention = CallingConvention.Cdecl)]
