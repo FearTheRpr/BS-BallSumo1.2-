@@ -127,6 +127,7 @@ public class Ball_movement : MonoBehaviour
         if (headCurrentVolicity.y > 0)
         {
             ball.velocity.Set(ball.velocity.x, multi_fact_Head, ball.velocity.x);
+            
             //ball.velocity.y = headCurrentVolicity.y * multi_fact_Head;
         }
        // ball.velocity;
