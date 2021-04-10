@@ -394,7 +394,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1419787578}
+      - m_Target: {fileID: 0}
         m_MethodName: timerStarted
         m_Mode: 1
         m_Arguments:
@@ -864,7 +864,6 @@ GameObject:
   - component: {fileID: 1419787573}
   - component: {fileID: 1419787572}
   - component: {fileID: 1419787577}
-  - component: {fileID: 1419787578}
   - component: {fileID: 1419787579}
   m_Layer: 5
   m_Name: Canvas
@@ -882,11 +881,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1419787571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db997578dfcdc94d903e716c77ee745, type: 3}
+  m_Script: {fileID: 11500000, guid: 6acc1125764af904fbcf1bcf0efaeb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 1816958900}
-  countDown: 0
 --- !u!114 &1419787573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,18 +987,6 @@ MonoBehaviour:
   - componentID: 2
     component: {fileID: 1419787579}
   _childViews: []
---- !u!114 &1419787578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419787571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4296d72f212436245a00c10b34f2ca8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1419787579
 MonoBehaviour:
   m_ObjectHideFlags: 0
