@@ -22,19 +22,24 @@ public class Ball_movement : MonoBehaviour
     public SteamVR_Action_Boolean Pulltoggle = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("default", "ball_pull");
     public GameObject leftHand;
     public GameObject rightHand;
-    public VelocityEstimator vLeft;
-    public VelocityEstimator vRight;
-    public VelocityEstimator vHead;
+    public SteamVR_Behaviour_Pose vLeft;
+    public SteamVR_Behaviour_Pose vRight;
+    public GameObject vHead;
     public Vector3 leftStart;
     public Vector3 rightStart;
     private Vector3 addT;
-    private Vector3 headCurrentVolicity;
+    public Vector3 startPlaceHead;
     public bool leftOn = false;
     public bool rightOn = false;
+    private bool HeadOn = true;
+    private bool justjumped = true;
     public Rigidbody ball;
     public GameObject play;
     public int multi_fact;
     public int multi_fact_Head;
+    public float jumpCooldown;
+    private float currentCooldown = 0;
+
 
     //fixed update because there is physic involved
     private void FixedUpdate()
@@ -56,15 +61,17 @@ public class Ball_movement : MonoBehaviour
                 //subtrackt the left hand start in relation to where it is now
                 //addT = leftStart - leftHand.transform.localPosition;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = vLeft.GetVelocityEstimate();
+                addT = vLeft.GetVelocity();
+                addT.y = 0;
                 addT = addT * multi_fact;
                 // add the torque to the ball
-                ball.AddTorque(addT);
+                ball.AddForce(addT);
                 //turn the grab state off
                 leftOn = false;
             }
         }
         //if no state change for left hand do this
+       
         else
         {
             //if right is held down do this
@@ -72,15 +79,22 @@ public class Ball_movement : MonoBehaviour
             {
                 //subtrackt the left hand start in relation to where it is now
                //addT = leftStart - leftHand.transform.localPosition;
-                addT = vLeft.GetVelocityEstimate();
+                addT = vLeft.GetVelocity();
+                addT.y = 0;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
                 addT = addT * multi_fact;
                 // add the torque to the ball
-                ball.AddTorque(addT);
+                ball.AddForce(addT);
                 //keep track of the starting local position
                 leftStart = leftHand.transform.localPosition;
             }
+            else if (HeadOn && vHead.transform.localPosition.y != 0)
+            {
+                startPlaceHead = vHead.transform.localPosition;
+                HeadOn = false;
+            }
         }
+        
         //if the right hand grab state has changed do this
         if (Pulltoggle.GetChanged(SteamVR_Input_Sources.RightHand))
         {
@@ -97,16 +111,18 @@ public class Ball_movement : MonoBehaviour
             {
                 //subtrackt the right hand start in relation to where it is now
                 //addT = rightStart - rightHand.transform.localPosition;
-                addT = vRight.GetVelocityEstimate();
+                addT = vRight.GetVelocity();
+                addT.y = 0;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
                 addT = addT * multi_fact;
                 // add the torque to the ball
-                ball.AddTorque(addT);
+                ball.AddForce(addT);
                 //turn the grab state off
                 rightOn = false;
             }
         }
         //if no state change for right hand do this do this
+       
         else
         {
             //if right is held down do this
@@ -115,20 +131,32 @@ public class Ball_movement : MonoBehaviour
                 //subtrackt the right hand start in relation to where it is now
                 //addT = rightStart - rightHand.transform.localPosition;
                 //multiplie the toque to exmise the results (make puplic var for stream lineing process)
-                addT = vRight.GetVelocityEstimate();
+                addT = vRight.GetVelocity();
+                addT.y = 0;
                 addT = addT * multi_fact;
                 // add the torque to the ball
-                ball.AddTorque(addT);
+                ball.AddForce(addT);
                 //keep track of the starting local position
                 rightStart = rightHand.transform.position;
             }
         }
-        headCurrentVolicity = vHead.GetVelocityEstimate();
-        if (headCurrentVolicity.y > 0)
+
+
+        if (vHead.transform.localPosition.y <= startPlaceHead.y / 1.3f && justjumped)
         {
-            ball.velocity.Set(ball.velocity.x, multi_fact_Head, ball.velocity.x);
-            
-            //ball.velocity.y = headCurrentVolicity.y * multi_fact_Head;
+            ball.AddForce(Vector3.up*multi_fact_Head, ForceMode.VelocityChange);
+
+            justjumped = false;
+            currentCooldown = jumpCooldown;
+        }
+        else if(!justjumped)
+        {
+            currentCooldown -= Time.deltaTime;
+            if (currentCooldown <=0)
+            {
+                justjumped = true;
+            }
+
         }
        // ball.velocity;
     }
