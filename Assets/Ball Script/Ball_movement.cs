@@ -20,13 +20,9 @@ public class Ball_movement : MonoBehaviour
     /// the multiplication factor
     /// </summary>
     public SteamVR_Action_Boolean Pulltoggle = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("default", "ball_pull");
-    public GameObject leftHand;
-    public GameObject rightHand;
     public SteamVR_Behaviour_Pose vLeft;
     public SteamVR_Behaviour_Pose vRight;
     public GameObject vHead;
-    public Vector3 leftStart;
-    public Vector3 rightStart;
     private Vector3 addT;
     public Vector3 startPlaceHead;
     public bool leftOn = false;
@@ -53,7 +49,7 @@ public class Ball_movement : MonoBehaviour
                 // turn on the left held state down local var
                 leftOn = true;
                 //keep track of the starting local position
-                leftStart =  leftHand.transform.localPosition;
+             
             }
             //if not (so let go of) do this
             else
@@ -86,7 +82,7 @@ public class Ball_movement : MonoBehaviour
                 // add the torque to the ball
                 ball.AddForce(addT);
                 //keep track of the starting local position
-                leftStart = leftHand.transform.localPosition;
+       
             }
             else if (HeadOn && vHead.transform.localPosition.y != 0)
             {
@@ -104,7 +100,7 @@ public class Ball_movement : MonoBehaviour
                 // turn on the right held state down local var
                 rightOn = true;
                 //keep track of the starting local position
-                rightStart = rightHand.transform.localPosition;
+               
             }
             //if not (so let go of) do this
             else
@@ -137,7 +133,7 @@ public class Ball_movement : MonoBehaviour
                 // add the torque to the ball
                 ball.AddForce(addT);
                 //keep track of the starting local position
-                rightStart = rightHand.transform.position;
+               
             }
         }
 
