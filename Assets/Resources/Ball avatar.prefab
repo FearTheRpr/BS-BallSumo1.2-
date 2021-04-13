@@ -822,11 +822,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8472255929427289008, guid: 881e95a5200f6494aa85eb02af6cb785,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 177.3179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472255929427289008, guid: 881e95a5200f6494aa85eb02af6cb785,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 177.3179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472255929427289008, guid: 881e95a5200f6494aa85eb02af6cb785,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 177.3179
+      objectReference: {fileID: 0}
+    - target: {fileID: 8472255929427289009, guid: 881e95a5200f6494aa85eb02af6cb785,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4711208715938537054, guid: c39359a7614ee344b92eb20b0d04d91c,
+        type: 3}
     - target: {fileID: 8472255929427289021, guid: 881e95a5200f6494aa85eb02af6cb785,
         type: 3}
       propertyPath: m_Name
       value: PLay_Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 8472255929427289022, guid: 881e95a5200f6494aa85eb02af6cb785,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76ca33271faec9146b87b9f85379a8ca, type: 2}
     m_RemovedComponents:
     - {fileID: 8472255929427289020, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
     - {fileID: 8472255929427289011, guid: 881e95a5200f6494aa85eb02af6cb785, type: 3}
