@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class gameTimer : RealtimeComponent<TimerModel>
 {
-    private Text _timeText;
+    public Text _timeText;
     public Realtime _realtime;
 
     // the starting time limit in milliseconds (eg. 90000 = 90 seconds)
