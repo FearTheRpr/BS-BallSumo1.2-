@@ -105,6 +105,7 @@ namespace Valve.VR
             }
         }
         
+<<<<<<< HEAD
         public virtual SteamVR_Action_Boolean ball_pull
         {
             get
@@ -113,6 +114,8 @@ namespace Valve.VR
             }
         }
         
+=======
+>>>>>>> Ring-UI/Animation
         public virtual SteamVR_Action_Vibration Haptic
         {
             get
