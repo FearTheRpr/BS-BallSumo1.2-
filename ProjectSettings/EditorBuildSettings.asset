@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Sky_ballCode_Prototype.unity
+    guid: 4aa6ccd3bfee84942b55715ca72093ca
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: bee7b526a3731a6468f5811b7d41f483,
       type: 2}
