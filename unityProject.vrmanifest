@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.bsballsumo.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "E:\\School\\Unity Projects\\Ball Sumo\\BS (BallSumo1.2)\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "BS (Ball Sumo) [Testing]"
+        }
+      }
+    }
+  ]
+}
