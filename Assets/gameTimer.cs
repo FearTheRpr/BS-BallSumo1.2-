@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class gameTimer : RealtimeComponent<TimerModel>
 {
-    public Text _timeText;
+    private Text _timeText;
     public Realtime _realtime;
 
     // the starting time limit in milliseconds (eg. 90000 = 90 seconds)
@@ -41,7 +41,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
     {
         if (model.timerCode == _timeLimit / 1000)
         {
-            model.timerCode = _realtime.room.time + 90;
+            model.timerCode = _realtime.room.time + 600;
         }
         StartCoroutine("CountDown");
     }
