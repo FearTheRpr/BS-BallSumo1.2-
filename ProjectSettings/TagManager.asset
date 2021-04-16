@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeHand
   - RiHand
+  - projectile
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Player
   - Ball
   - localball
-  - 
+  - key board
   - 
   - 
   - 
