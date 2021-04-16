@@ -11,6 +11,7 @@ public class Color_Name : MonoBehaviour
     public Text Pname;
     public Image colorPreview;
     public GameObject Saved;
+    public color_Player RTplayer;
     private void Start()
     {
         if (Script_Boi.Load()!=null)
@@ -45,9 +46,13 @@ public class Color_Name : MonoBehaviour
         Userdata loaded = Script_Boi.Load();
         playerColor = new Color(loaded.playerColorR, loaded.playerColorG, loaded.playerColorB, loaded.playerColorA);
         player = loaded.name;
+        RTplayer.setColor(playerColor);
+        RTplayer.setPlayerName(player);
     }
     public void save()
     {
+        RTplayer.setColor(playerColor);
+        RTplayer.setPlayerName(player);
         Script_Boi.save(this);
         Saved.SetActive(true);
     }
