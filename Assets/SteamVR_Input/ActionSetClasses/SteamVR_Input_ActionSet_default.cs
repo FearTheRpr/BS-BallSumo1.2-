@@ -97,11 +97,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean SnapTurnRight
+        public virtual SteamVR_Action_Boolean Trigger
         {
             get
             {
-                return SteamVR_Actions.default_SnapTurnRight;
+                return SteamVR_Actions.default_Trigger;
             }
         }
         
