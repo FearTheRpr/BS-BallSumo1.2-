@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RTrans: {fileID: 114272718057082298}
   selfie: {fileID: 1435502846325602}
+  BAM: {fileID: 6663538721080791671}
 --- !u!82 &3311128829710720561
 AudioSource:
   m_ObjectHideFlags: 0

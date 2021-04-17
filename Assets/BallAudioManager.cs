@@ -44,7 +44,7 @@ public class BallAudioManager : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("Ball"))
             {
                 hitAud.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
-            }
+            } 
         }
     }
     private void OnCollisionExit(Collision other)
