@@ -324,6 +324,7 @@ MonoBehaviour:
   Pname: {fileID: 60252230}
   colorPreview: {fileID: 914619149}
   Saved: {fileID: 2127303066}
+  RTplayer: {fileID: 0}
 --- !u!114 &60252230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,6 +995,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1819339312413722276, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1819339312413722279, guid: b00c8771968a8d04ab2084640081d3b5,
         type: 3}
       propertyPath: m_Name
