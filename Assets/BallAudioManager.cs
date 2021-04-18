@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Normal.Realtime;
+using Normal.Realtime.Native;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,10 +10,9 @@ using Random = UnityEngine.Random;
 public class BallAudioManager : MonoBehaviour
 {
     public AudioSource rollAud;
-    
+    public AudioOutput AudOut;
     public AudioSource hitAud;
     private Quaternion lastRot = Quaternion.identity;
-    private SphereCollider collider;
     public AudioClip[] hitSounds;
     public AudioClip[] splashSounds;
     public float audioSpeed = 720;
@@ -20,13 +21,8 @@ public class BallAudioManager : MonoBehaviour
     public float rollAirtimeFalloff = 0.01f;
     
     private bool isgrounded = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        collider = this.GetComponent<SphereCollider>();
-    }
 
-    // Update is called once per frame
+    
     void Update()
     { 
         var rotation = this.transform.rotation;

@@ -18,6 +18,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/00A9F6C9-D42A-445B-9CF4-124485F746FD/8c/d241d36d/AudioOutputStream.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Avatars/RealtimeAvatarVoice.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Audio/AudioPreprocessorPlaybackListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Audio/AudioOutput.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/CustomMathFunctions.cs" />
@@ -67,7 +73,7 @@
       <updated>1617155732388</updated>
       <workItem from="1617155739487" duration="1000" />
       <workItem from="1618679637133" duration="3000" />
-      <workItem from="1618681801672" duration="10750000" />
+      <workItem from="1618681801672" duration="15070000" />
     </task>
     <servers />
   </component>
