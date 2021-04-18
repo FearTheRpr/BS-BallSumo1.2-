@@ -43,30 +43,32 @@ public class gameTimer : RealtimeComponent<TimerModel>
         {
             model.timerCode = _realtime.room.time + 600;
         }
+        Debug.Log("DidConnect");
         StartCoroutine("CountDown");
     }
     private IEnumerator CountDown()
     {
-        while (timeLeft > 0)
-        {
+         while (timeLeft > 0)
+         {
 
-            timeLeft = CompareDates(UnixTimeStampToDateTime(model.timerCode), UnixTimeStampToDateTime(_realtime.room.time));
+             timeLeft = CompareDates(UnixTimeStampToDateTime(model.timerCode), UnixTimeStampToDateTime(_realtime.room.time));
             // converts the time left into minutes 
             _timeText.text = ((int)(timeLeft / 60)).ToString() + ":";
 
-            // converts the remaining time (after minutes) to seconds
-            int seconds = (int)(timeLeft % 60);
-            // if seconds are less than 10, add a 0 at the beginning
-            if (seconds < 10)
-            {
-                _timeText.text += "0" + ((int)(timeLeft % 60)).ToString();
-            }
-            else
-            {
-                _timeText.text += ((int)(timeLeft % 60)).ToString();
-            }
-            yield return null;
-        }
+             // converts the remaining time (after minutes) to seconds
+             int seconds = (int)(timeLeft % 60);
+             // if seconds are less than 10, add a 0 at the beginning
+             if (seconds < 10)
+             {
+                 _timeText.text += "0" + ((int)(timeLeft % 60)).ToString();
+             }
+             else
+             {
+                 _timeText.text += ((int)(timeLeft % 60)).ToString();
+             }
+             yield return null;
+         }
+        
     }
 
     // used to get the difference between the current time and the stored startTime

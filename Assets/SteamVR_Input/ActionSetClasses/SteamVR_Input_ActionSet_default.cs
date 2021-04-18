@@ -113,6 +113,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean ball_pull
+        {
+            get
+            {
+                return SteamVR_Actions.default_ball_pull;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get
