@@ -5,7 +5,15 @@
       "app_key": "application.generated.unity.bsballsumo.exe",
       "launch_type": "url",
       "url": "steam://launch/",
+<<<<<<< HEAD
+<<<<<<< HEAD
+      "action_manifest_path": "F:\\Semester 2 projects\\BallSumo\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+=======
       "action_manifest_path": "E:\\School\\Unity Projects\\Ball Sumo\\BS (BallSumo1.2)\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+>>>>>>> Ring-UI/Animation
+=======
+      "action_manifest_path": "E:\\School\\Unity Projects\\Ball Sumo\\BS (BallSumo1.2)\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+>>>>>>> 264b6be4f6424285c2cc69483802076a49f8ae3b
       "strings": {
         "en_us": {
           "name": "BS (Ball Sumo) [Testing]"
