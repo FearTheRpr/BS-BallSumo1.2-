@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 public class BallAudioManager : MonoBehaviour
 {
     public AudioSource rollAud;
-    public AudioOutput AudOut;
     public AudioSource hitAud;
     private Quaternion lastRot = Quaternion.identity;
     public AudioClip[] hitSounds;
@@ -19,14 +18,13 @@ public class BallAudioManager : MonoBehaviour
     public float rollMaxVolume = 1;
     public float rollMaxPitch = 2;
     public float rollAirtimeFalloff = 0.01f;
-    
+
     private bool isgrounded = false;
 
     
     void Update()
     { 
         var rotation = this.transform.rotation;
-
         CalibrateRollSound(lastRot, rotation, isgrounded);
         lastRot = rotation;
     }
@@ -63,7 +61,7 @@ public class BallAudioManager : MonoBehaviour
         else
         {
             rollAud.volume = Mathf.Clamp((rollAud.volume - rollAirtimeFalloff),0,rollMaxVolume);
-            rollAud.pitch= Mathf.Clamp((rollAud.pitch + rollAirtimeFalloff),0,rollMaxPitch);
+            rollAud.pitch = Mathf.Clamp((rollAud.pitch + rollAirtimeFalloff),0,rollMaxPitch);
         }
     }
 

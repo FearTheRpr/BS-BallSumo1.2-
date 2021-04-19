@@ -1067,7 +1067,11 @@
           <e p="conter_rotate.cs" t="Include" />
           <e p="setlocalball.cs" t="Include" />
         </e>
-        <e p="BallAudioManager.cs" t="Include" />
+        <e p="BAM" t="Include">
+          <e p="BallAudioManager.cs" t="Include" />
+          <e p="BallAudioManagerController.cs" t="Include" />
+          <e p="BallAudioManagerModel.cs" t="Include" />
+        </e>
         <e p="CustomMathFunctions.cs" t="Include" />
         <e p="gameTimer.cs" t="Include" />
         <e p="lobby_code" t="Include">

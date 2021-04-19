@@ -23,12 +23,17 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Avatars/RealtimeAvatarVoice.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Audio/AudioPreprocessorPlaybackListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Audio/AudioOutput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BAM/BallAudioManagerModel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/CustomMathFunctions.cs" />
-      <option value="$PROJECT_DIR$/Assets/Ball Script/setlocalball.cs" />
       <option value="$PROJECT_DIR$/Assets/BallAudioManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/BallAudioManagerModel.cs" />
+      <option value="$PROJECT_DIR$/Assets/BAM/BallAudioManagerModel.cs" />
+      <option value="$PROJECT_DIR$/Assets/BAM/BallAudioManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Ball Script/setlocalball.cs" />
+      <option value="$PROJECT_DIR$/Assets/BAM/BallAudioManagerController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qVDBqfwV97VRJLeqnZMgErgG0e" />
@@ -44,6 +49,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Downloads/BS\BS (Ball Sumo).exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\kaspar\Downloads\BS" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -74,6 +87,7 @@
       <workItem from="1617155739487" duration="1000" />
       <workItem from="1618679637133" duration="3000" />
       <workItem from="1618681801672" duration="15070000" />
+      <workItem from="1618846079809" duration="9256000" />
     </task>
     <servers />
   </component>
