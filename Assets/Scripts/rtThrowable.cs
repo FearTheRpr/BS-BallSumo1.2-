@@ -22,7 +22,7 @@ public class rtThrowable : Throwable
         ownership = rtTransform.ownerIDSelf;
     }
 
-    protected override void HandHoverUpdate(Hand hand)
+    protected override void HandHoverUpdate( Hand hand )
     {
         GrabTypes startingGrabType = hand.GetGrabStarting();
 

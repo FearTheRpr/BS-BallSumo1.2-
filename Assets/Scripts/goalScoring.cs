@@ -19,6 +19,7 @@ public class goalScoring : MonoBehaviour
         //checks to see if its ball hitting the goal
         if (collision.gameObject.CompareTag("Ball"))
         {
+            Debug.Log("Ball has hit");
             //checks the owner ID of ball (NEEDS TO CHANGE IN ORDER TO INCORPERATE THE BALL THAT THE PLAYER IS ATTACHED TO)
             ownerID = collision.gameObject.GetComponent<rtThrowable>().ownership;
             if (ownerID != -1)
