@@ -50,7 +50,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
         if (model.timerCode == _timeLimit / 1000)
         {
             //change if different end time is desired (600 = 10 min)
-            model.timerCode = _realtime.room.time + 600;
+            model.timerCode = _realtime.room.time + 310;
         }
 
 
