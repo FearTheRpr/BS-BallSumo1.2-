@@ -36,8 +36,8 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
         {
             if (currentModel.isFreshModel)
             {
-                model.pitch = 0f;
-                model.volume = 0f;
+                model.pitch = 1f;
+                model.volume = 1f;
             }
 
             currentModel.volumeDidChange += VolumeDidChange;
@@ -55,7 +55,7 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
     {
         rollAudioSource.pitch = model.pitch;
     }
-
+/*
     private void Update()
     {
         var rotation = this.transform.rotation;
@@ -80,7 +80,7 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
         }
     }
     
-    
+    */
     
     
 }
