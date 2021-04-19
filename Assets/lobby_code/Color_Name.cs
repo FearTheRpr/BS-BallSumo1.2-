@@ -21,6 +21,7 @@ public class Color_Name : MonoBehaviour
             colorPreview.color = playerColor;
             Saved.SetActive(true);
         }
+
     }
     public void AddCharacterToPlayerName(string c) //Adds c to the room name
     {
@@ -51,9 +52,22 @@ public class Color_Name : MonoBehaviour
     }
     public void save()
     {
-        RTplayer.setColor(playerColor);
-        RTplayer.setPlayerName(player);
+        putToRT();
         Script_Boi.save(this);
         Saved.SetActive(true);
+
+    }
+    public void findRT()
+    {
+        RTplayer = FindObjectOfType<color_Player>();
+        if (Script_Boi.Load() != null)
+        {
+            putToRT();
+        }
+    }
+    public void putToRT()
+    {
+        RTplayer.setColor(playerColor);
+        RTplayer.setPlayerName(player);
     }
 }
