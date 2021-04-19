@@ -10,7 +10,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
     public Realtime _realtime;
     public GameObject _Ring1;
     public GameObject _Ring2;
-   
+
 
     // the starting time limit in milliseconds (eg. 90000 = 90 seconds)
     public double _timeLimit;
@@ -19,6 +19,9 @@ public class gameTimer : RealtimeComponent<TimerModel>
     // Start is called before the first frame update
     void Awake()
     {
+
+
+
         // reference the text object
         _timeText = GetComponent<Text>();
 
@@ -50,7 +53,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
             model.timerCode = _realtime.room.time + 312;
         }
 
-       
+
 
         StartCoroutine("CountDown");
     }
@@ -85,7 +88,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
                 Debug.Log("Time Left 5 min");
                 _Ring1.transform.position += new Vector3(0, -10, 0) * Time.deltaTime;
                 Destroy(_Ring1, 5);
-               
+
             }
             //lowers the outter ring when the timer says 2 asnd a half min remaining
             if (timeLeft < 150 && _Ring2 != null)
@@ -103,7 +106,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
 
             else
             {
-                        Debug.Log("waiting");
+                //Debug.Log("waiting");
             }
 
 
