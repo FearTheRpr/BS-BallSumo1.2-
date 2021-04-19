@@ -24,6 +24,7 @@ public class Script_Boi
             BinaryFormatter format = new BinaryFormatter();
             Userdata data = format.Deserialize(stream) as Userdata;
             stream.Close();
+            Debug.Log(path);
             return data;
         }
         else
@@ -33,4 +34,6 @@ public class Script_Boi
         }
         
     }
+  
+
 }
