@@ -50,6 +50,13 @@
       "type": "boolean"
     },
     {
+<<<<<<< HEAD
+=======
+      "name": "/actions/default/in/ball_pull",
+      "type": "boolean"
+    },
+    {
+>>>>>>> 264b6be4f6424285c2cc69483802076a49f8ae3b
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
