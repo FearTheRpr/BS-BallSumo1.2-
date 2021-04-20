@@ -1,6 +1,5 @@
-﻿#if NORMCORE
-
-using UnityEngine;
+﻿using UnityEngine;
+using Normal.Realtime;
 
 namespace Normal.Realtime.Examples {
     public class CubePlayer : MonoBehaviour {
@@ -16,7 +15,7 @@ namespace Normal.Realtime.Examples {
 
         private void Update() {
             // If this CubePlayer prefab is not owned by this client, bail.
-            if (!_realtimeView.isOwnedLocallySelf)
+            if (!_realtimeView.isOwnedLocally)
                 return;
 
             // Make sure we own the transform so that RealtimeTransform knows to use this client's transform to synchronize remote clients.
@@ -34,5 +33,3 @@ namespace Normal.Realtime.Examples {
         }
     }
 }
-
-#endif
