@@ -7,6 +7,7 @@ public class setlocalball : MonoBehaviour
 {
     public RealtimeTransform RTrans;
     public GameObject selfie;
+    public color_Player CP;
   
     private void Start()
     {
@@ -14,6 +15,8 @@ public class setlocalball : MonoBehaviour
         {
             selfie.layer = 10;
             GetComponent<AudioSource>().enabled = false;
+            FindObjectOfType<Ball_movement>().setRTV(CP);
+            FindObjectOfType<Color_Name>().findRT(CP);
         }   
     }
 }
