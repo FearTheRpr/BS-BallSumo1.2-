@@ -18,6 +18,8 @@ public class JoinStart : MonoBehaviour
   
     private Realtime rt;
     private RoomName rn;
+    public Transform spawn;
+    public GameObject player;
 
     public void Start() //Finds and sets realtime and roomname, requires only one in a scene.
     {
@@ -27,6 +29,7 @@ public class JoinStart : MonoBehaviour
     //join the room
     public void startRoom()
     {
+        player.transform.position = spawn.position;
         rt.Connect(rn.roomName.ToString());
     }
     //leave the room
