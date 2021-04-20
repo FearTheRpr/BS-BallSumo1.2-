@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Normal.Realtime;
+using Random = UnityEngine.Random;
 
 
 public class BallAudioManagerController : RealtimeComponent<BallAudioManagerModel>
@@ -10,6 +11,8 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
 
     public AudioSource rollAudioSource;
     public AudioSource hitAudioSource;
+    
+    
     
     //
     private Quaternion lastRot = Quaternion.identity;
@@ -20,7 +23,7 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
     public float rollMaxPitch = 2;
     public float rollAirtimeFalloff = 0.01f;
     
-    private bool isgrounded = false;
+    private bool isgrounded = true;
     //
     
     
@@ -30,6 +33,8 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
         {
             previousModel.pitchDidChange -= PitchDidChange;
             previousModel.volumeDidChange -= VolumeDidChange;
+            previousModel.groundedDidChange -= GroundedDidChange;
+            previousModel.hitTypeDidChange -= PlayOneShotSound;
         }
 
         if (currentModel != null)
@@ -38,24 +43,49 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
             {
                 model.pitch = 1f;
                 model.volume = 1f;
+                model.hitType = 0;
             }
 
             currentModel.volumeDidChange += VolumeDidChange;
             currentModel.pitchDidChange += PitchDidChange;
+            currentModel.hitTypeDidChange += PlayOneShotSound;
         }
     }
 
 
-    public void VolumeDidChange(BallAudioManagerModel model, float v)
+    public void VolumeDidChange(BallAudioManagerModel Model, float v)
     {
-        rollAudioSource.volume = model.volume;
+        rollAudioSource.volume = Model.volume;
     }
 
-    public void PitchDidChange(BallAudioManagerModel model, float p)
+    public void PitchDidChange(BallAudioManagerModel Model, float p)
     {
-        rollAudioSource.pitch = model.pitch;
+        rollAudioSource.pitch = Model.pitch;
     }
-/*
+
+    public void PlayOneShotSound(BallAudioManagerModel Model, int hitType)
+    {
+        Debug.Log("playoneshotsound: ");
+        if (hitType == 1)
+        {
+            hitAudioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
+            model.hitType = 0;
+            Debug.Log("Play hit sound");
+        }
+        else if(hitType == 2)
+        {
+            hitAudioSource.PlayOneShot(splashSounds[Random.Range(0, hitSounds.Length)]);
+            model.hitType = 0;
+            Debug.Log("Play water sound");
+        }
+
+
+    }
+
+    public void GroundedDidChange(BallAudioManagerModel Model, bool g)
+    {
+        
+    }
     private void Update()
     {
         var rotation = this.transform.rotation;
@@ -80,7 +110,33 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
         }
     }
     
-    */
+    void OnCollisionEnter(Collision other) //Define sounds to play based on collision
+    {
+        if (other.gameObject.layer == 0) //if hitting default layer
+        {
+            model.grounded = true; //we probably are grounded
+        } 
+        
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ball")) //if ball
+        {
+            model.hitType = 1; //false = hit player, play player hit sound
+            Debug.Log(model.hitType);
+        }
+        else
+        {
+            model.hitType = 2; //true = hit probably water, hit water sound
+            Debug.Log(model.hitType);
+        } 
+        
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.layer == 0)
+        {
+            model.grounded = false; //if we stop touching ground we are flying
+        }
+    }
     
     
 }

@@ -15,6 +15,12 @@ public partial class BallAudioManagerModel
     [RealtimeProperty(2, true, true)] 
     private float _pitch;
     
+    [RealtimeProperty(3,true,true)]
+    private bool _grounded;
+
+    [RealtimeProperty(4,true,true)]
+    private int _hitType; //0 == default 1 = player 2 = water
+
     
 }
 
@@ -44,15 +50,45 @@ public partial class BallAudioManagerModel : RealtimeModel {
         }
     }
     
+    public bool grounded {
+        get {
+            return _cache.LookForValueInCache(_grounded, entry => entry.groundedSet, entry => entry.grounded);
+        }
+        set {
+            if (this.grounded == value) return;
+            _cache.UpdateLocalCache(entry => { entry.groundedSet = true; entry.grounded = value; return entry; });
+            InvalidateReliableLength();
+            FireGroundedDidChange(value);
+        }
+    }
+    
+    public int hitType {
+        get {
+            return _cache.LookForValueInCache(_hitType, entry => entry.hitTypeSet, entry => entry.hitType);
+        }
+        set {
+            if (this.hitType == value) return;
+            _cache.UpdateLocalCache(entry => { entry.hitTypeSet = true; entry.hitType = value; return entry; });
+            InvalidateReliableLength();
+            FireHitTypeDidChange(value);
+        }
+    }
+    
     public delegate void PropertyChangedHandler<in T>(BallAudioManagerModel model, T value);
     public event PropertyChangedHandler<float> volumeDidChange;
     public event PropertyChangedHandler<float> pitchDidChange;
+    public event PropertyChangedHandler<bool> groundedDidChange;
+    public event PropertyChangedHandler<int> hitTypeDidChange;
     
     private struct LocalCacheEntry {
         public bool volumeSet;
         public float volume;
         public bool pitchSet;
         public float pitch;
+        public bool groundedSet;
+        public bool grounded;
+        public bool hitTypeSet;
+        public int hitType;
     }
     
     private LocalChangeCache<LocalCacheEntry> _cache = new LocalChangeCache<LocalCacheEntry>();
@@ -60,6 +96,8 @@ public partial class BallAudioManagerModel : RealtimeModel {
     public enum PropertyID : uint {
         Volume = 1,
         Pitch = 2,
+        Grounded = 3,
+        HitType = 4,
     }
     
     public BallAudioManagerModel() : this(null) {
@@ -88,12 +126,30 @@ public partial class BallAudioManagerModel : RealtimeModel {
         }
     }
     
+    private void FireGroundedDidChange(bool value) {
+        try {
+            groundedDidChange?.Invoke(this, value);
+        } catch (System.Exception exception) {
+            UnityEngine.Debug.LogException(exception);
+        }
+    }
+    
+    private void FireHitTypeDidChange(int value) {
+        try {
+            hitTypeDidChange?.Invoke(this, value);
+        } catch (System.Exception exception) {
+            UnityEngine.Debug.LogException(exception);
+        }
+    }
+    
     protected override int WriteLength(StreamContext context) {
         int length = 0;
         if (context.fullModel) {
             FlattenCache();
             length += WriteStream.WriteFloatLength((uint)PropertyID.Volume);
             length += WriteStream.WriteFloatLength((uint)PropertyID.Pitch);
+            length += WriteStream.WriteVarint32Length((uint)PropertyID.Grounded, _grounded ? 1u : 0u);
+            length += WriteStream.WriteVarint32Length((uint)PropertyID.HitType, (uint)_hitType);
         } else if (context.reliableChannel) {
             LocalCacheEntry entry = _cache.localCache;
             if (entry.volumeSet) {
@@ -101,6 +157,12 @@ public partial class BallAudioManagerModel : RealtimeModel {
             }
             if (entry.pitchSet) {
                 length += WriteStream.WriteFloatLength((uint)PropertyID.Pitch);
+            }
+            if (entry.groundedSet) {
+                length += WriteStream.WriteVarint32Length((uint)PropertyID.Grounded, entry.grounded ? 1u : 0u);
+            }
+            if (entry.hitTypeSet) {
+                length += WriteStream.WriteVarint32Length((uint)PropertyID.HitType, (uint)entry.hitType);
             }
         }
         return length;
@@ -112,9 +174,11 @@ public partial class BallAudioManagerModel : RealtimeModel {
         if (context.fullModel) {
             stream.WriteFloat((uint)PropertyID.Volume, _volume);
             stream.WriteFloat((uint)PropertyID.Pitch, _pitch);
+            stream.WriteVarint32((uint)PropertyID.Grounded, _grounded ? 1u : 0u);
+            stream.WriteVarint32((uint)PropertyID.HitType, (uint)_hitType);
         } else if (context.reliableChannel) {
             LocalCacheEntry entry = _cache.localCache;
-            if (entry.volumeSet || entry.pitchSet) {
+            if (entry.volumeSet || entry.pitchSet || entry.groundedSet || entry.hitTypeSet) {
                 _cache.PushLocalCacheToInflight(context.updateID);
                 ClearCacheOnStreamCallback(context);
             }
@@ -124,6 +188,14 @@ public partial class BallAudioManagerModel : RealtimeModel {
             }
             if (entry.pitchSet) {
                 stream.WriteFloat((uint)PropertyID.Pitch, entry.pitch);
+                didWriteProperties = true;
+            }
+            if (entry.groundedSet) {
+                stream.WriteVarint32((uint)PropertyID.Grounded, entry.grounded ? 1u : 0u);
+                didWriteProperties = true;
+            }
+            if (entry.hitTypeSet) {
+                stream.WriteVarint32((uint)PropertyID.HitType, (uint)entry.hitType);
                 didWriteProperties = true;
             }
             
@@ -152,6 +224,24 @@ public partial class BallAudioManagerModel : RealtimeModel {
                     }
                     break;
                 }
+                case (uint)PropertyID.Grounded: {
+                    bool previousValue = _grounded;
+                    _grounded = (stream.ReadVarint32() != 0);
+                    bool groundedExistsInChangeCache = _cache.ValueExistsInCache(entry => entry.groundedSet);
+                    if (!groundedExistsInChangeCache && _grounded != previousValue) {
+                        FireGroundedDidChange(_grounded);
+                    }
+                    break;
+                }
+                case (uint)PropertyID.HitType: {
+                    int previousValue = _hitType;
+                    _hitType = (int)stream.ReadVarint32();
+                    bool hitTypeExistsInChangeCache = _cache.ValueExistsInCache(entry => entry.hitTypeSet);
+                    if (!hitTypeExistsInChangeCache && _hitType != previousValue) {
+                        FireHitTypeDidChange(_hitType);
+                    }
+                    break;
+                }
                 default: {
                     stream.SkipProperty();
                     break;
@@ -167,6 +257,8 @@ public partial class BallAudioManagerModel : RealtimeModel {
     private void FlattenCache() {
         _volume = volume;
         _pitch = pitch;
+        _grounded = grounded;
+        _hitType = hitType;
         _cache.Clear();
     }
     
