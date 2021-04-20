@@ -79,25 +79,26 @@ public class gameTimer : RealtimeComponent<TimerModel>
             }
             yield return null;
 
-
+            //*************Ring Code Starts here**************************
 
             //lowers the outter ring when the timer says 5 min remaining
             if (_timeText.text == "5:00" && _Ring1 != null)
             {
 
-                Debug.Log("Time Left 5 min");
+               
                 _Ring1.transform.position += new Vector3(0, -10, 0) * Time.deltaTime;
                 Destroy(_Ring1, 5);
 
             }
-            //lowers the outter ring when the timer says 2 asnd a half min remaining
+            //lowers the inner ring when the timer says 2 and a half min remaining
             if (timeLeft < 150 && _Ring2 != null)
             {
-                Debug.Log("Time Left 2.5 min");
+                
                 _Ring2.transform.position += new Vector3(0, -10, 0) * Time.deltaTime;
                 Destroy(_Ring2, 5);
             }
             //what happens when timer runs out
+            //add end game code here
             if (timeLeft == 0.01)
             {
                 Debug.Log("Game Over");
@@ -106,7 +107,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
 
             else
             {
-                //Debug.Log("waiting");
+              
             }
 
 

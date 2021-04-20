@@ -14,6 +14,8 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
         _playerScoreText = this.gameObject.GetComponent<Text>();
 
     }
+
+    
     protected override void OnRealtimeModelReplaced(playerScoreModel previousModel,playerScoreModel currentModel)
     {
         if (previousModel != null)
@@ -39,6 +41,7 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
         UpdateScore();
 
     }
+    //updates the score on the player
     private void UpdateScore()
     {
         _playerScoreText.text = model.playerScore.ToString();
@@ -48,7 +51,7 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
     {
         return model.playerScore;
     }
-    // called when ball hits goal
+    // called when ball hits Water
     public void SetScore(int points)
     {
         model.playerScore += points;
