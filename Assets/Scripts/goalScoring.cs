@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Normal.Realtime;
 
 public class goalScoring : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class goalScoring : MonoBehaviour
         {
             Debug.Log("Ball has hit");
             //checks the owner ID of ball (NEEDS TO CHANGE IN ORDER TO INCORPERATE THE BALL THAT THE PLAYER IS ATTACHED TO)
-            ownerID = collision.gameObject.GetComponent<rtThrowable>().ownership;
+            ownerID = collision.gameObject.GetComponent<RealtimeTransform>().ownerIDInHierarchy;
             if (ownerID != -1)
             {
                 scoreBoardScript.SetScoreForPlayer(ownerID, 1);
