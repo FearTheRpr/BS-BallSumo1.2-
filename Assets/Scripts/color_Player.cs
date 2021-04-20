@@ -62,4 +62,9 @@ public class color_Player : RealtimeComponent<color_Model>
     {
         model.pName = N;
     }
+
+    public string GetName()
+    {
+        return model.pName;
+    }
 }

@@ -63,7 +63,7 @@ public class scoreScript : RealtimeComponent<scoreModel>
         {
             
             playerID = avatarItem.Key + 1;
-            model.scoreBoardText += "Player " + playerID + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
+            model.scoreBoardText += _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<color_Player>().GetName() + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
         }
     }
     //part of score change when goal is hit
