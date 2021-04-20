@@ -24,11 +24,12 @@ public class JoinStart : MonoBehaviour
         rt = FindObjectOfType<Realtime>(); 
         rn = FindObjectOfType<RoomName>();
     }
-
+    //join the room
     public void startRoom()
     {
         rt.Connect(rn.roomName.ToString());
     }
+    //leave the room
 
     public void leaveRoom()
     {

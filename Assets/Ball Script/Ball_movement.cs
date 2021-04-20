@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
+using Normal.Realtime;
 
 public class Ball_movement : MonoBehaviour
 {
     /// <summary>
     /// these are the varibles
     /// first the steam vr input
-    /// left hand game object to take postion from
-    /// same but for the right
-    /// to keep track of the postion of the right hand
-    /// same but for the left
-    /// a vector 3 to keep the math done to the ball
-    /// to keep track if the left hand grab is held
-    /// to keep track if the right hand grab is held
+    /// Left and right ahand class to get volicity from
+    /// head to track the postion
+    /// to keep track of button on the left hand and right hand
+    /// to wait and see the head staring postion
+    /// a booleen for a thr jump cooldown
     /// the riged body for the ball
-    /// the multiplication factor
+    /// the multiplication factor for volicity
+    /// the multiplication factor for jump
+    /// to change how long the jump cooldown is
+    /// to keep track of the cool down
+    /// to intrack with the model to set your volicty for othe players
+    /// to get other players volicty
+    /// a varible to keep track of the other players volcity
     /// </summary>
     public SteamVR_Action_Boolean Pulltoggle = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("default", "ball_pull");
     public SteamVR_Behaviour_Pose vLeft;
@@ -30,11 +35,14 @@ public class Ball_movement : MonoBehaviour
     private bool HeadOn = true;
     private bool justjumped = true;
     public Rigidbody ball;
-    public GameObject play;
     public int multi_fact;
     public int multi_fact_Head;
     public float jumpCooldown;
     private float currentCooldown = 0;
+    public color_Player RTV;
+    public RealtimeAvatarManager aMan;
+    private int Owner;
+    private Vector3 colV; 
 
 
     //fixed update because there is physic involved
@@ -48,17 +56,16 @@ public class Ball_movement : MonoBehaviour
             {
                 // turn on the left held state down local var
                 leftOn = true;
-                //keep track of the starting local position
              
             }
             //if not (so let go of) do this
             else
             {
-                //subtrackt the left hand start in relation to where it is now
-                //addT = leftStart - leftHand.transform.localPosition;
-                //multiplie the toque to exmise the results (make puplic var for stream lineing process)
+                //get volicty from hand to add force
                 addT = vLeft.GetVelocity();
+                // set the y to zero so it does not jump
                 addT.y = 0;
+                //multiplie the Force to get a faster result
                 addT = addT * multi_fact;
                 // add the torque to the ball
                 ball.AddForce(addT);
@@ -70,27 +77,28 @@ public class Ball_movement : MonoBehaviour
        
         else
         {
-            //if right is held down do this
+            //if left is held down do this
             if (leftOn)
             {
-                //subtrackt the left hand start in relation to where it is now
-               //addT = leftStart - leftHand.transform.localPosition;
+                //get volicty from hand to add force
                 addT = vLeft.GetVelocity();
+                // set the y to zero so it does not jump
                 addT.y = 0;
-                //multiplie the toque to exmise the results (make puplic var for stream lineing process)
+                //multiplie the Force to get a faster result
                 addT = addT * multi_fact;
-                // add the torque to the ball
+                // add the Force to the ball
                 ball.AddForce(addT);
-                //keep track of the starting local position
        
             }
-            else if (HeadOn && vHead.transform.localPosition.y != 0)
-            {
-                startPlaceHead = vHead.transform.localPosition;
-                HeadOn = false;
-            }
+
         }
-        
+        //this wil wait for the head to update befor getting the starting postion for jump
+        if (HeadOn && vHead.transform.localPosition.y != 0)
+        {
+            startPlaceHead = vHead.transform.localPosition;
+            HeadOn = false;
+        }
+
         //if the right hand grab state has changed do this
         if (Pulltoggle.GetChanged(SteamVR_Input_Sources.RightHand))
         {
@@ -99,19 +107,18 @@ public class Ball_movement : MonoBehaviour
             {
                 // turn on the right held state down local var
                 rightOn = true;
-                //keep track of the starting local position
                
             }
             //if not (so let go of) do this
             else
             {
-                //subtrackt the right hand start in relation to where it is now
-                //addT = rightStart - rightHand.transform.localPosition;
+                //get volicty from hand to add force
                 addT = vRight.GetVelocity();
+                // set the y to zero so it does not jump
                 addT.y = 0;
-                //multiplie the toque to exmise the results (make puplic var for stream lineing process)
+                //multiplie the Force to get a faster result
                 addT = addT * multi_fact;
-                // add the torque to the ball
+                // add the force to the ball
                 ball.AddForce(addT);
                 //turn the grab state off
                 rightOn = false;
@@ -124,37 +131,61 @@ public class Ball_movement : MonoBehaviour
             //if right is held down do this
             if (rightOn)
             {
-                //subtrackt the right hand start in relation to where it is now
-                //addT = rightStart - rightHand.transform.localPosition;
-                //multiplie the toque to exmise the results (make puplic var for stream lineing process)
+
+                //get volicty from hand to add force
                 addT = vRight.GetVelocity();
+                // set the y to zero so it does not jump
                 addT.y = 0;
+                //multiplie the Force to get a faster result
                 addT = addT * multi_fact;
-                // add the torque to the ball
+                // add the force to the ball
                 ball.AddForce(addT);
-                //keep track of the starting local position
-               
             }
         }
-
-
+        //if the head is lower then a wierd number that i got off of some random fitnse sight of how high should a squat be for a certain hight and did some wierd alibra and rounded down.
         if (vHead.transform.localPosition.y <= startPlaceHead.y / 1.3f && justjumped)
         {
+            //ad instent volicty to ball
             ball.AddForce(Vector3.up*multi_fact_Head, ForceMode.VelocityChange);
-
+            //get the jump cool down activated
             justjumped = false;
             currentCooldown = jumpCooldown;
         }
+        //if jump is on cool down
         else if(!justjumped)
         {
+            //decrease the cooldown time
             currentCooldown -= Time.deltaTime;
+            //if cooldowns done activate the jump bool
             if (currentCooldown <=0)
             {
                 justjumped = true;
             }
 
         }
-       // ball.velocity;
+        //set the model volicity in normcore if its there 
+        if (RTV !=null && RTV.getVelocityofP()!=ball.velocity)
+        {
+            RTV.setVelocityofP(ball.velocity);
+        }
+    }
+
+    //on collition with another ball
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 9)
+        {
+            //get the owner an its volicity and add it to your own vollocity
+            Owner = collision.gameObject.GetComponent<RealtimeTransform>().ownerIDInHierarchy;
+            colV = aMan.avatars[Owner].gameObject.GetComponentInChildren<color_Player>().getVelocityofP();
+            colV = colV *1.2f;
+            ball.AddForce(colV, ForceMode.VelocityChange);
+        }
+    }
+    //a method to set the local realtime volicty controller 
+    public void setRTV(color_Player x)
+    {
+        RTV = x;
     }
     
 }

@@ -20,9 +20,9 @@ public class RoomInput : MonoBehaviour
     
 
     public RoomName rn; //roomName.cs to change
-    public Text Room;
+    public Text Room; // to show current room name
     
-    public void AddCharacterToRoomName(string c) //Adds c to the room name
+    public void AddCharacterToRoomName(string c) //Adds c to the room name and update text
     {
 
         rn.roomName += c;

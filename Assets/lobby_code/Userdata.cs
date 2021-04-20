@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Userdata
 {
+    //this class is to seraliz the player name and color values
     public float playerColorR;
     public float playerColorG;
     public float playerColorB;
