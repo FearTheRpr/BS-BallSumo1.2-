@@ -7,7 +7,7 @@ using Normal.Realtime;
 
 public class color_Player : RealtimeComponent<color_Model>
 {
-
+    
     //renderer to set the color
     public Renderer Ballcolor;
     public string TestName;
@@ -56,9 +56,10 @@ public class color_Player : RealtimeComponent<color_Model>
     }
     //getter method for velocity
     public Vector3 getVelocityofP()
-    {
-        return model.pVelocity;
-    }
+   {
+         return model.pVelocity;
+        
+   }
     //setter method for color
     public void setColor(Color V)
     {
