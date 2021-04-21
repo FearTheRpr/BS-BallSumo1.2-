@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scoreBoardTextBox: {fileID: 8827964142928400410}
   _avatarManager: {fileID: 0}
+  ColorPlayerScript: {fileID: 0}
 --- !u!1 &8827964143294309057
 GameObject:
   m_ObjectHideFlags: 0

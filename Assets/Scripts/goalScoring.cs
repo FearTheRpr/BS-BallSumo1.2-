@@ -6,6 +6,7 @@ using Normal.Realtime;
 public class goalScoring : MonoBehaviour
 {
     public GameObject scoreBoardContainer;
+    public GameObject playerNamer;
     private scoreScript scoreBoardScript;
     private int ownerID = -1;
 
@@ -22,7 +23,9 @@ public class goalScoring : MonoBehaviour
         {
             Debug.Log("Ball has hit");
             //checks the owner ID of ball (NEEDS TO CHANGE IN ORDER TO INCORPERATE THE BALL THAT THE PLAYER IS ATTACHED TO)
-            ownerID = collision.gameObject.GetComponent<RealtimeTransform>().ownerIDInHierarchy;
+            //ownerID = collision.gameObject.GetComponent<RealtimeTransform>().ownerIDInHierarchy;
+           
+            ownerID = playerNamer.GetComponent<Ball_movement>().Owner;
             if (ownerID != -1)
             {
                 scoreBoardScript.SetScoreForPlayer(ownerID, 1);

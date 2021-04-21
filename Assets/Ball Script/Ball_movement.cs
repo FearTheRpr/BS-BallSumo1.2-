@@ -41,7 +41,7 @@ public class Ball_movement : MonoBehaviour
     private float currentCooldown = 0;
     public color_Player RTV;
     public RealtimeAvatarManager aMan;
-    private int Owner;
+    public int Owner;
     private Vector3 colV; 
 
 

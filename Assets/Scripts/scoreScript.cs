@@ -10,6 +10,7 @@ public class scoreScript : RealtimeComponent<scoreModel>
 {
     public Text _scoreBoardTextBox;
     public RealtimeAvatarManager _avatarManager;
+    public GameObject ColorPlayerScript;
 
     private void OnEnable()
     {
@@ -63,7 +64,7 @@ public class scoreScript : RealtimeComponent<scoreModel>
         {
             
             playerID = avatarItem.Key + 1;
-            model.scoreBoardText += _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<color_Player>().GetName() + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
+            model.scoreBoardText += ColorPlayerScript.GetComponent<color_Player>().GetName() + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
         }
     }
     //part of score change when goal is hit
