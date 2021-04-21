@@ -9,6 +9,7 @@ TagManager:
   - projectile
   - FxTemporaire
   - Ball
+  - Water
   layers:
   - Default
   - TransparentFX

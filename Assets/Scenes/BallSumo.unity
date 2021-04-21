@@ -555,6 +555,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 395211986}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &395211992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395211991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0c7df39b80a0a41bf341b6da604a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreBoardContainer: {fileID: 1111751773}
+  playerNamer: {fileID: 395211991}
+  scoreBoardScript: {fileID: 1689892439}
 --- !u!1001 &398349570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,6 +2026,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 444896247, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 444896248, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.002
@@ -2056,6 +2075,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829393233968832241, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 4662389049043863224, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
         type: 3}
@@ -2112,5 +2136,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 444896249, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
