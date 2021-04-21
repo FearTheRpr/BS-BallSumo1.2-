@@ -11,8 +11,7 @@ public partial class color_Model
     private Color _pColor;
     [RealtimeProperty(2, true, true)]
     private string _pName;
-    [RealtimeProperty(3, true, true)]
-    private int _pScore;
+
     [RealtimeProperty(4, true, false)]
     private Vector3 _pVelocity;
 }

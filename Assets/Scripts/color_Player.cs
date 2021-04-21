@@ -16,7 +16,6 @@ public class color_Player : RealtimeComponent<color_Model>
     {
         if (previousModel != null)
         {
-            previousModel.pScoreDidChange -= PScoreDidChange;
             previousModel.pColorDidChange -= PColorDidChange;
             previousModel.pNameDidChange -= PNameDidChange;
         }
@@ -30,7 +29,6 @@ public class color_Player : RealtimeComponent<color_Model>
             }
             updateBall();
             // subscrib to the events of change
-            currentModel.pScoreDidChange += PScoreDidChange;
             currentModel.pColorDidChange += PColorDidChange;
             currentModel.pNameDidChange += PNameDidChange;
         }
@@ -51,10 +49,6 @@ public class color_Player : RealtimeComponent<color_Model>
     public void PColorDidChange(color_Model Model, Color Cul)
     {
         updateBall();
-    }
-    public void PScoreDidChange(color_Model Model, int value)
-    {
-
     }
     public void setVelocityofP(Vector3 V)
     {
