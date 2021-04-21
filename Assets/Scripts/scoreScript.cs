@@ -19,6 +19,7 @@ public class scoreScript : RealtimeComponent<scoreModel>
     
     private void AvatarChangedUpdateScoreBoard(RealtimeAvatarManager avatarManager, RealtimeAvatar avatar, bool isLocalAvatar)
     {
+        
         setScoreBoardText();
         setColors();
     }

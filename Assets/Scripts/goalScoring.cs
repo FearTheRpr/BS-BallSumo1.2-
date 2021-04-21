@@ -8,17 +8,17 @@ public class goalScoring : MonoBehaviour
     public GameObject scoreBoardContainer;
     public GameObject playerNamer;
     public scoreScript scoreBoardScript;
-    private int ownerID = -1;
+    private int ownerID;
 
     // Start is called before the first frame update
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collisions)
     {
         //checks to see if its ball hitting the goal
-        if (collision.gameObject.CompareTag("Water"))
+        if (collisions.gameObject.CompareTag("Water"))
         { 
            
-            ownerID = playerNamer.GetComponent<Ball_movement>().Owner;
+            ownerID = gameObject.GetComponent<Ball_movement>().Owner;
             if (ownerID != -1)
             {
                 

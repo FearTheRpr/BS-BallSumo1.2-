@@ -30,10 +30,15 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
                 model.playerScore = 0;
             }
         }
+
+        currentModel.playerScoreDidChange += PlayerScoreDidChange;
+
         updateName();
         UpdateScore();
 
-        currentModel.playerScoreDidChange += PlayerScoreDidChange;
+       // currentModel.playerScoreDidChange += PlayerScoreDidChange;
+
+
     }
 
     private void PlayerScoreDidChange(playerScoreModel model, int value)

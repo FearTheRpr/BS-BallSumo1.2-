@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 444896248}
   - component: {fileID: 444896251}
   - component: {fileID: 444896250}
-  - component: {fileID: 444896249}
   m_Layer: 0
   m_Name: Water Colider
   m_TagString: Untagged
@@ -55,20 +54,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &444896249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444896247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0c7df39b80a0a41bf341b6da604a23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreBoardContainer: {fileID: 0}
-  playerNamer: {fileID: 0}
 --- !u!1 &3807158640424934630
 GameObject:
   m_ObjectHideFlags: 0
