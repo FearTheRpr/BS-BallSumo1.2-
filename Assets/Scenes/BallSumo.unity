@@ -328,6 +328,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 641999781697210276, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: rollMaxVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1638663680255857115, guid: b00c8771968a8d04ab2084640081d3b5,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -512,6 +517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 7.6302
+      objectReference: {fileID: 0}
+    - target: {fileID: 8312133131111466673, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00c8771968a8d04ab2084640081d3b5, type: 3}
@@ -1994,7 +2004,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 444896247, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 444896248, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2017,10 +2027,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 3807158640424934630, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829393232779545707, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829393233415282562, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3829393233968832237, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829393233968832241, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4662389049043863224, guid: 0b04c253a5e16fb4c870ae4bc44c88ea,
         type: 3}
