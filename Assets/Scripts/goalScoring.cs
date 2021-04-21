@@ -15,10 +15,10 @@ public class goalScoring : MonoBehaviour
     private void OnCollisionEnter(Collision collisions)
     {
         //checks to see if its ball hitting the goal
-        if (collisions.gameObject.CompareTag("Water"))
+        if (collisions.gameObject.CompareTag("Ball"))
         { 
            
-            ownerID = gameObject.GetComponent<Ball_movement>().Owner;
+            ownerID = collisions.gameObject.GetComponent<Ball_movement>().Owner;
             if (ownerID != -1)
             {
                 

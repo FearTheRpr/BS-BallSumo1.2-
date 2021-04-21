@@ -6,13 +6,13 @@ using Normal.Realtime.Serialization;
 [RealtimeModel]
 public partial class color_Model 
 {
-    //realtime model to keep track color, Name, score, velocity.
+    //realtime model to keep track color, Name, velocity.
     [RealtimeProperty(1, true, true)]
     private Color _pColor;
     [RealtimeProperty(2, true, true)]
     private string _pName;
 
-    [RealtimeProperty(4, true, false)]
+    [RealtimeProperty(3, true, false)]
     private Vector3 _pVelocity;
 }
 

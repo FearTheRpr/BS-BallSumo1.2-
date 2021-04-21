@@ -23,7 +23,7 @@ public class color_Player : RealtimeComponent<color_Model>
         {
             if (currentModel.isFreshModel)
             {
-                model.pScore = 0;
+                
                 model.pColor = new Color(0f,0f,0f);
                 model.pName = string.Empty;
             }
