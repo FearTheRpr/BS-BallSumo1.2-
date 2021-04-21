@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obsoleteAppKey: 
-  _normcoreAppSettings: {fileID: 0}
-  _roomToJoinOnStart: Test Room
+  _normcoreAppSettings: {fileID: 11400000, guid: f95f614099c82f946a2763cc723fe5a3,
+    type: 2}
+  _roomToJoinOnStart: 
   _joinRoomOnStart: 1
 --- !u!114 &114568985850100520
 MonoBehaviour:
