@@ -6,14 +6,9 @@ using Normal.Realtime;
 
 public class playerScoreScript : RealtimeComponent<playerScoreModel>
 { 
-   private Text _playerScoreText;
-
-    
-    private void Awake()
-    {
-        _playerScoreText = this.gameObject.GetComponent<Text>();
-
-    }
+   public Text _playerScoreText;
+    public Text playerNameText;
+    public color_Player CP;
 
     
     protected override void OnRealtimeModelReplaced(playerScoreModel previousModel,playerScoreModel currentModel)
@@ -30,7 +25,7 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
                 model.playerScore = 0;
             }
         }
-
+        updateName();
         UpdateScore();
 
         currentModel.playerScoreDidChange += PlayerScoreDidChange;
@@ -55,5 +50,9 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
     public void SetScore(int points)
     {
         model.playerScore += points;
+    }
+    public void updateName()
+    {
+        playerNameText.text = CP.GetName();
     }
 }

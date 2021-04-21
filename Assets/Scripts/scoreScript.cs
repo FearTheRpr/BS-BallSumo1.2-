@@ -21,6 +21,7 @@ public class scoreScript : RealtimeComponent<scoreModel>
     private void AvatarChangedUpdateScoreBoard(RealtimeAvatarManager avatarManager, RealtimeAvatar avatar, bool isLocalAvatar)
     {
         setScoreBoardText();
+        setColors();
     }
 
     protected override void OnRealtimeModelReplaced(scoreModel previousModel, scoreModel currentModel)
@@ -64,7 +65,14 @@ public class scoreScript : RealtimeComponent<scoreModel>
         {
             
             playerID = avatarItem.Key + 1;
-            model.scoreBoardText += ColorPlayerScript.GetComponent<color_Player>().GetName() + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
+            model.scoreBoardText += _avatarManager.avatars[avatarItem.Key].gameObject.GetComponent<color_Player>().GetName() + ": " + _avatarManager.avatars[avatarItem.Key].gameObject.GetComponentInChildren<playerScoreScript>().GetScore() + "\n";
+        }
+    }
+    public void setColors()
+    {
+        foreach (var avatarItem in _avatarManager.avatars)
+        {
+            _avatarManager.avatars[avatarItem.Key].gameObject.GetComponent<color_Player>().updateBall();
         }
     }
     //part of score change when goal is hit

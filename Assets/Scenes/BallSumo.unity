@@ -321,6 +321,52 @@ MonoBehaviour:
   - componentID: 1
     component: {fileID: 141850929}
   _childViews: []
+--- !u!1 &233236494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1819339312884326524, guid: b00c8771968a8d04ab2084640081d3b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 395211986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &233236498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233236494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55584cd428d37814f83a8ca4a6481ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handType: 0
+  PointerActivate:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
+--- !u!114 &233236499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233236494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f511c1adaa1e94ebe7ca97bbcabd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pose: {fileID: 0}
+  interactWithUI:
+    actionPath: /actions/default/in/InteractUI
+    needsReinit: 0
+  active: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  thickness: 0.002
+  clickColor: {r: 0, g: 1, b: 0, a: 1}
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!1001 &395211986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,6 +438,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819339312893797502, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: hapticAction.actionPath
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819339312893797502, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: hapticAction.needsReinit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819339312894010592, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: hapticAction.actionPath
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819339312894010592, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: hapticAction.needsReinit
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00c8771968a8d04ab2084640081d3b5, type: 3}
@@ -688,6 +754,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lobby
       objectReference: {fileID: 0}
+    - target: {fileID: 1782060395441251764, guid: 54a8474edd213e047b813850aeb2b2c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -259
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782060395441251764, guid: 54a8474edd213e047b813850aeb2b2c6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -94
+      objectReference: {fileID: 0}
     - target: {fileID: 1782060395699146426, guid: 54a8474edd213e047b813850aeb2b2c6,
         type: 3}
       propertyPath: onHandClick.m_PersistentCalls.m_Calls.Array.size
@@ -833,7 +909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &887664719
 AudioSource:
   m_ObjectHideFlags: 0
@@ -846,7 +922,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 82ded80f276ab4a4a921e34faace2b4b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.048
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -960,7 +1036,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorPlayerScript
       value: 
-      objectReference: {fileID: 2075432676}
+      objectReference: {fileID: 0}
     - target: {fileID: 8827964142928400409, guid: 72d7c37c109f6bb47afdac29ab54c52e,
         type: 3}
       propertyPath: _realtime
@@ -1163,78 +1239,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7e8c3503b20e074e9796ae59158582f, type: 3}
---- !u!1001 &1165679348
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1435502846325602, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_Name
-      value: Ball avatar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736743072354544, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114879240156072798, guid: 318b43ee263ad5645a7079450b948f5f,
-        type: 3}
-      propertyPath: _realtime
-      value: 
-      objectReference: {fileID: 529963095}
-    - target: {fileID: 114879240156072798, guid: 318b43ee263ad5645a7079450b948f5f,
-        type: 3}
-      propertyPath: _viewUUID
-      value: ec5f6f55-e42b-43fd-9a5c-3a0a052984cc
-      objectReference: {fileID: 0}
-    - target: {fileID: 114879240156072798, guid: 318b43ee263ad5645a7079450b948f5f,
-        type: 3}
-      propertyPath: _isRootPrefabView
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 318b43ee263ad5645a7079450b948f5f, type: 3}
 --- !u!1 &1177186304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1193216708
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1294,7 +1298,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc1e96b542681e745b9f6cef34824eca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.334
+  m_Volume: 0.039
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1950,9 +1954,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
---- !u!1 &2075432676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3694926039803905658, guid: 318b43ee263ad5645a7079450b948f5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165679348}
-  m_PrefabAsset: {fileID: 0}

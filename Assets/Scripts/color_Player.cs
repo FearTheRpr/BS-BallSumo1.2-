@@ -7,8 +7,11 @@ using Normal.Realtime;
 
 public class color_Player : RealtimeComponent<color_Model>
 {
+
     //renderer to set the color
     public Renderer Ballcolor;
+    public string TestName;
+    public playerScoreScript PSS;
     protected override void OnRealtimeModelReplaced(color_Model previousModel, color_Model currentModel)
     {
         if (previousModel != null)
@@ -22,7 +25,10 @@ public class color_Player : RealtimeComponent<color_Model>
             if (currentModel.isFreshModel)
             {
                 model.pScore = 0;
+                model.pColor = new Color(0f,0f,0f);
+                model.pName = string.Empty;
             }
+            updateBall();
             // subscrib to the events of change
             currentModel.pScoreDidChange += PScoreDidChange;
             currentModel.pColorDidChange += PColorDidChange;
@@ -30,14 +36,21 @@ public class color_Player : RealtimeComponent<color_Model>
         }
 
     }
+    private void Start()
+    {
+        if (this.isOwnedLocallyInHierarchy)
+        {
+            getLocalVals();
+        }
+    }
     public void PNameDidChange(color_Model Model, string nam)
     {
-
+        PSS.updateName();
     }
     //set the color of avatar ball
     public void PColorDidChange(color_Model Model, Color Cul)
     {
-        Ballcolor.material.color = model.pColor;
+        updateBall();
     }
     public void PScoreDidChange(color_Model Model, int value)
     {
@@ -66,5 +79,13 @@ public class color_Player : RealtimeComponent<color_Model>
     public string GetName()
     {
         return model.pName;
+    }
+    public void updateBall()
+    {
+        Ballcolor.material.color = model.pColor;
+    }
+    private void getLocalVals()
+    {
+     FindObjectOfType<Color_Name>().putToRT();
     }
 }
