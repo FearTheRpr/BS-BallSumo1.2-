@@ -9,8 +9,13 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
    public Text _playerScoreText;
     public Text playerNameText;
     public color_Player CP;
+    public scoreScript SS;
 
-    
+
+    private void Awake()
+    {
+        SS = FindObjectOfType<scoreScript>();
+    }
     protected override void OnRealtimeModelReplaced(playerScoreModel previousModel,playerScoreModel currentModel)
     {
         if (previousModel != null)
@@ -34,12 +39,12 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
     private void PlayerScoreDidChange(playerScoreModel model, int value)
     {
         UpdateScore();
-
     }
     //updates the score on the player
     private void UpdateScore()
     {
         _playerScoreText.text = model.playerScore.ToString();
+
     }
     //called from scoreboard
     public int GetScore()
@@ -54,5 +59,6 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
     public void updateName()
     {
         playerNameText.text = CP.GetName();
+        SS.UpdateScoreboard();
     }
 }

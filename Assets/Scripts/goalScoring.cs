@@ -7,14 +7,10 @@ public class goalScoring : MonoBehaviour
 {
     public GameObject scoreBoardContainer;
     public GameObject playerNamer;
-    private scoreScript scoreBoardScript;
+    public scoreScript scoreBoardScript;
     private int ownerID = -1;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        scoreBoardScript = scoreBoardContainer.GetComponentInChildren<scoreScript>();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
