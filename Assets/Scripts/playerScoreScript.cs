@@ -43,17 +43,20 @@ public class playerScoreScript : RealtimeComponent<playerScoreModel>
     //updates the score on the player
     private void UpdateScore()
     {
+       
         _playerScoreText.text = model.playerScore.ToString();
 
     }
     //called from scoreboard
     public int GetScore()
     {
+        
         return model.playerScore;
     }
     // called when ball hits Water
     public void SetScore(int points)
     {
+        
         model.playerScore += points;
     }
     public void updateName()

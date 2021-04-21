@@ -2008,7 +2008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 444896248, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0148
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 444896249, guid: 0b04c253a5e16fb4c870ae4bc44c88ea, type: 3}
       propertyPath: scoreBoardContainer
