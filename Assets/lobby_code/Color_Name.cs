@@ -64,9 +64,9 @@ public class Color_Name : MonoBehaviour
     //save the data tell player its save and put it to the real time
     public void save()
     {
-        putToRT();
         Script_Boi.save(this);
         Saved.SetActive(true);
+        putToRT();
 
     }
     //this is to set the RTplayer and if load exist put to real time
