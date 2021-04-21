@@ -1073,7 +1073,6 @@
           <e p="BallAudioManagerModel.cs" t="Include" />
         </e>
         <e p="CustomMathFunctions.cs" t="Include" />
-        <e p="gameTimer.cs" t="Include" />
         <e p="lobby_code" t="Include">
           <e p="Color_Name.cs" t="Include" />
           <e p="JoinStart.cs" t="Include" />
@@ -1130,6 +1129,17 @@
           <e p="Char_script.cs" t="Include" />
           <e p="color_Model.cs" t="Include" />
           <e p="color_Player.cs" t="Include" />
+          <e p="gameTimer.cs" t="Include" />
+          <e p="goalScoring.cs" t="Include" />
+          <e p="playerScoreModel.cs" t="Include" />
+          <e p="playerScoreScript.cs" t="Include" />
+          <e p="QuitApp.cs" t="Include" />
+          <e p="ResetGame.cs" t="Include" />
+          <e p="rtThrowable.cs" t="Include" />
+          <e p="scoreModel.cs" t="Include" />
+          <e p="scoreScript.cs" t="Include" />
+          <e p="TimerModel.cs" t="Include" />
+          <e p="VolumeControl.cs" t="Include" />
           <e p="VRUIInput.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
@@ -1399,6 +1409,13 @@
                 <e p="JoeJeffGestures.cs" t="Include" />
                 <e p="ProceduralHats.cs" t="Include" />
               </e>
+              <e p="Resources" t="Include">
+                <e p="SteamVR_AlphaOut.shader" t="Include" />
+                <e p="SteamVR_ClearAll.shader" t="Include" />
+                <e p="SteamVR_ColorOut.shader" t="Include" />
+                <e p="SteamVR_Fade.shader" t="Include" />
+                <e p="SteamVR_SphericalProjection.shader" t="Include" />
+              </e>
               <e p="Scripts" t="Include">
                 <e p="ButtonEffect.cs" t="Include" />
                 <e p="ButtonExample.cs" t="Include" />
@@ -1451,13 +1468,6 @@
             <e p="openvr_api.cs" t="Include" />
           </e>
           <e p="readme.txt" t="Include" />
-          <e p="Resources" t="Include">
-            <e p="SteamVR_AlphaOut.shader" t="Include" />
-            <e p="SteamVR_ClearAll.shader" t="Include" />
-            <e p="SteamVR_ColorOut.shader" t="Include" />
-            <e p="SteamVR_Fade.shader" t="Include" />
-            <e p="SteamVR_SphericalProjection.shader" t="Include" />
-          </e>
           <e p="Scripts" t="Include">
             <e p="SteamVR.cs" t="Include" />
             <e p="SteamVR_Behaviour.cs" t="Include" />
@@ -1505,7 +1515,6 @@
           <e p="SteamVR_Input_ActionSets.cs" t="Include" />
           <e p="SteamVR_Input_Initialization.cs" t="Include" />
         </e>
-        <e p="TimerModel.cs" t="Include" />
         <e p="WorldCreatorUnityBridge" t="Include">
           <e p="Content" t="Include">
             <e p="Shaders" t="Include">

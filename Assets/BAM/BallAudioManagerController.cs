@@ -72,7 +72,7 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
             model.hitType = 0;
             Debug.Log("Play hit sound");
         }
-        else if(hitType == 2)
+        if(hitType == 2)
         {
             hitAudioSource.PlayOneShot(splashSounds[Random.Range(0, hitSounds.Length)]);
             model.hitType = 0;
@@ -123,7 +123,8 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
             model.hitType = 1; //false = hit player, play player hit sound
             Debug.Log(model.hitType);
         }
-        else
+        
+        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
             model.hitType = 2; //true = hit probably water, hit water sound
             Debug.Log(model.hitType);

@@ -1091,6 +1091,7 @@ MonoBehaviour:
   _playerScoreText: {fileID: 8188645861853528404}
   playerNameText: {fileID: 617363710908180548}
   CP: {fileID: 5748480989622222029}
+  SS: {fileID: 0}
 --- !u!1 &2368513776425306763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1245,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
