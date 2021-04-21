@@ -19,6 +19,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/BAM/BAMLocal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/00A9F6C9-D42A-445B-9CF4-124485F746FD/8c/d241d36d/AudioOutputStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Avatars/RealtimeAvatarVoice.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.normalvr.normcore@2.0.3/Runtime/Normal/Realtime/Audio/AudioPreprocessorPlaybackListener.cs" root0="SKIP_HIGHLIGHTING" />
@@ -34,6 +35,7 @@
       <option value="$PROJECT_DIR$/Assets/Ball Script/setlocalball.cs" />
       <option value="$PROJECT_DIR$/Assets/BAM/BallAudioManagerModel.cs" />
       <option value="$PROJECT_DIR$/Assets/BAM/BallAudioManagerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/BAM/BAMLocal.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1qVDBqfwV97VRJLeqnZMgErgG0e" />
@@ -89,7 +91,7 @@
       <workItem from="1618681801672" duration="15070000" />
       <workItem from="1618846079809" duration="21579000" />
       <workItem from="1618954918863" duration="843000" />
-      <workItem from="1619031197214" duration="388000" />
+      <workItem from="1619031197214" duration="1347000" />
     </task>
     <servers />
   </component>

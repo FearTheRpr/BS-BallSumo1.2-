@@ -1071,6 +1071,7 @@
           <e p="BallAudioManager.cs" t="Include" />
           <e p="BallAudioManagerController.cs" t="Include" />
           <e p="BallAudioManagerModel.cs" t="Include" />
+          <e p="BAMLocal.cs" t="Include" />
         </e>
         <e p="CustomMathFunctions.cs" t="Include" />
         <e p="lobby_code" t="Include">

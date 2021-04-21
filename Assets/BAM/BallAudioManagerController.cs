@@ -74,7 +74,7 @@ public class BallAudioManagerController : RealtimeComponent<BallAudioManagerMode
         }
         if(hitType == 2)
         {
-            hitAudioSource.PlayOneShot(splashSounds[Random.Range(0, hitSounds.Length)]);
+            hitAudioSource.PlayOneShot(splashSounds[Random.Range(0, splashSounds.Length)]);
             model.hitType = 0;
             Debug.Log("Play water sound");
         }
