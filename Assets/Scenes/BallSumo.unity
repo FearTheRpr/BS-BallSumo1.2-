@@ -483,6 +483,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -3.5865495
       objectReference: {fileID: 0}
+    - target: {fileID: 4935584639928077332, guid: b00c8771968a8d04ab2084640081d3b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5871543871981496887, guid: b00c8771968a8d04ab2084640081d3b5,
         type: 3}
       propertyPath: m_Text
@@ -1664,6 +1669,11 @@ PrefabInstance:
       propertyPath: _Ring2
       value: 
       objectReference: {fileID: 1369117136}
+    - target: {fileID: 9049081838005066702, guid: b670a9c126826694ab66011f4a2b5eae,
+        type: 3}
+      propertyPath: WatCol
+      value: 
+      objectReference: {fileID: 2045639950}
     - target: {fileID: 9049081838005066705, guid: b670a9c126826694ab66011f4a2b5eae,
         type: 3}
       propertyPath: _realtime
