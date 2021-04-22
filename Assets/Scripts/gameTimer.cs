@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Normal.Realtime;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameTimer : RealtimeComponent<TimerModel>
 {
@@ -50,8 +51,8 @@ public class gameTimer : RealtimeComponent<TimerModel>
     {
         if (model.timerCode == _timeLimit / 1000)
         {
-            //change if different end time is desired (600 = 10 min)
-            model.timerCode = _realtime.room.time + 600;
+            //change if different end time is desired (300 = 5 min 600 = 10 min)
+            model.timerCode = _realtime.room.time + 300;
         }
 
 
@@ -83,7 +84,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
             //*************Ring Code Starts here**************************
 
             //lowers the outter ring when the timer says 5 min remaining
-            if (timeLeft < 300 && _Ring1 != null)
+            if (timeLeft < 150 && _Ring1 != null)
             {
 
                
@@ -92,27 +93,33 @@ public class gameTimer : RealtimeComponent<TimerModel>
 
             }
             //lowers the inner ring when the timer says 2 and a half min remaining
-            if (timeLeft < 150 && _Ring2 != null)
+            if (timeLeft < 75 && _Ring2 != null)
             {
                 
                 _Ring2.transform.position += new Vector3(0, -10, 0) * Time.deltaTime;
                 Destroy(_Ring2, 5);
             }
             //what happens when timer runs out
-            //add end game code here
-            if (timeLeft == 0.01)
+         
+            if (timeLeft < 1)
             {
-                Debug.Log("Game Over");
+                
+                //Destroys Water collider preventing any points from being scored
                 Destroy(WatCol);
-            }
-
-            else
-            {
-              
+                StartCoroutine("waiter");
+                
             }
 
 
         }
+
+    }
+    //Resets scene after 20 seconds once the timer stops
+   private IEnumerator waiter()
+    {
+        
+        yield return new WaitForSeconds(20);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
