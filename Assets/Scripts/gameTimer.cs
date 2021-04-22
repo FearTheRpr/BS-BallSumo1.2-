@@ -10,6 +10,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
     public Realtime _realtime;
     public GameObject _Ring1;
     public GameObject _Ring2;
+    public GameObject WatCol;
 
 
     // the starting time limit in milliseconds (eg. 90000 = 90 seconds)
@@ -82,7 +83,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
             //*************Ring Code Starts here**************************
 
             //lowers the outter ring when the timer says 5 min remaining
-            if (_timeText.text == "5:00" && _Ring1 != null)
+            if (timeLeft < 300 && _Ring1 != null)
             {
 
                
@@ -102,7 +103,7 @@ public class gameTimer : RealtimeComponent<TimerModel>
             if (timeLeft == 0.01)
             {
                 Debug.Log("Game Over");
-
+                Destroy(WatCol);
             }
 
             else
